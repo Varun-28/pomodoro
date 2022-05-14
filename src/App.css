@@ -1,0 +1,8 @@
+@import url("./index.css");
+
+:root {
+    --bg-color: #C4DDFF;
+    --primary-color: #001D6E;
+    --secondary-color: #FEE2C5;
+    --hover-color: #7FB5FF;
+}
