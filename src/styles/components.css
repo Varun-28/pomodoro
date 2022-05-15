@@ -1,0 +1,10 @@
+.btn-primary{
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 5px;
+    transition: 0.15s ease-in-out;
+}
+
+.btn-primary:hover{
+    transform: scale(1.05);
+}

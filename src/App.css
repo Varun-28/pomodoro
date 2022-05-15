@@ -1,8 +1,14 @@
 @import url("./index.css");
+@import url("./styles/components.css");
 
 :root {
     --bg-color: #C4DDFF;
     --primary-color: #001D6E;
     --secondary-color: #FEE2C5;
     --hover-color: #7FB5FF;
+}
+
+.App{
+    background-color: var(--bg-color);
+    color: var(--primary-color);
 }

@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { Home } from "./pages/home/Home.jsx";
 import { SingleTask } from "./pages/singleTask/SingleTask.jsx";
 import "./App.css";
-import { Footer } from "./components/Components.jsx";
+import { Footer, NotFound } from "./components/Components.jsx";
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/task/:taskId" element={<SingleTask />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <footer>
