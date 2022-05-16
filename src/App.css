@@ -1,14 +1,15 @@
 @import url("./index.css");
-@import url("./styles/components.css");
+@import url("./styles/media.css");
 
 :root {
-    --bg-color: #C4DDFF;
-    --primary-color: #001D6E;
-    --secondary-color: #FEE2C5;
-    --hover-color: #7FB5FF;
+    --bg-color: #F3E1CD;
+    --primary-color: #E71466;
+    --secondary-color: #00898F;
+    --hover-color: #FF8354;
+    --white-color: #ffffff;
+    --black-color: #000000;
 }
 
 .App{
-    background-color: var(--bg-color);
     color: var(--primary-color);
 }

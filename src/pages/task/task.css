@@ -1,0 +1,120 @@
+.task-header {
+    min-height: 30vh;
+    background-color: var(--bg-color);
+}
+
+.pattern-bg {
+    background-image: url("../../assets/bg_img.png");
+    background-size: contain;
+    min-height: 100vh;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.task-container {
+    background-color: var(--white-color);
+    border: solid 4px var(--primary-color);
+    border-radius: 1.2rem;
+    margin: -2rem auto 1.2rem auto;
+    height: 65vh;
+    position: relative;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.task-container::-webkit-scrollbar {
+    display: none;
+}
+
+.task-list-header {
+    position: sticky;
+    top: 0px;
+    background-color: var(--white-color);
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px;
+    margin-bottom: 1.2rem;
+    color: var(--primary-color);
+    box-shadow: 0 0 2px 1px var(--primary-color);
+}
+
+.task-item-btns {
+    display: flex;
+    column-gap: 1.2rem;
+    margin: auto 1.2rem;
+}
+
+.fa-pen-to-square {
+    color: var(--secondary-color);
+}
+
+.fa-trash-can {
+    color: var(--hover-color)
+}
+
+.modal-form-container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: grid;
+    place-items: center;
+}
+
+.form-modal {
+    position: relative;
+    background-color: var(--white-color);
+}
+
+.add-input, .add-btn {
+    border: solid 2px var(--primary-color);
+    padding: 4px;
+    border-radius: 4px;
+}
+
+textarea.add-input {
+    min-height: 20vh;
+}
+
+.add-btn {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    width: 4rem;
+}
+
+.fa-times-circle{
+    position: absolute;
+    top: -8px;
+    right: -4px;
+}
+
+.home-btn{
+    position: absolute;
+    top: 4vh;
+    right: 4vh;
+    width: 2em;
+    height: 2em;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    border-radius: 50%;
+    border: none;
+    transition: 0.2s ease-in-out;
+}
+
+.home-btn:hover{
+    box-shadow: 4px 4px 8px -2px var(--primary-color);
+}

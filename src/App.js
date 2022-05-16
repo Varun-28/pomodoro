@@ -1,8 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import { Home } from "./pages/home/Home.jsx";
-import { SingleTask } from "./pages/singleTask/SingleTask.jsx";
-import "./App.css";
+import { Home, Task, SingleTask } from "./pages/Pages";
 import { Footer, NotFound } from "./components/Components.jsx";
+import "./App.css";
 
 function App() {
   return (
@@ -10,6 +9,7 @@ function App() {
       <main className="grow">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/task" element={<Task />} />
           <Route path="/task/:taskId" element={<SingleTask />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
