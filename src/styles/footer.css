@@ -1,0 +1,11 @@
+@import url("../App.css");
+
+.pomodoro-footer{
+    text-align: center;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+}
+
+.social-links .fab{
+    font-size: 2rem;
+}
