@@ -1,4 +1,4 @@
-.single-task-page{
+.single-task-page {
     background-color: var(--bg-color);
 }
 
@@ -9,6 +9,27 @@
     min-height: 84vh;
     border-radius: 1rem;
     padding: 1rem;
+}
+
+.btn {
+    padding: 5px 1rem;
+    border-radius: 5px;
+    font-weight: 500;
+    color: var(--bg-color);
+    cursor: pointer;
+}
+
+.btn-start {
+    background-color: var(--primary-color);
+}
+
+.btn-pause {
+    background-color: var(--hover-color);
+
+}
+
+.btn-reset {
+    background-color: var(--secondary-color);
 }
 
 @media only screen and (max-width: 800px) {

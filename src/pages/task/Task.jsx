@@ -1,12 +1,13 @@
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import { TaskHeader, TaskList, TaskForm } from "../../components/Components";
+import { useTitle } from "../../utils/useTitle";
 import "./task.css";
 
 function Task() {
   const [showForm, setShowForm] = useState(false);
   const [isEditing, setIsEditing] = useState({ value: false, data: {} });
-
+  useTitle("Tasks | TASKY");
   return (
     <div className="relative">
       <TaskHeader />
