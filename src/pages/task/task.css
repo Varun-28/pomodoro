@@ -93,7 +93,7 @@ textarea.add-input {
 .add-btn {
     background-color: var(--primary-color);
     color: var(--bg-color);
-    width: 4rem;
+    width: 5rem;
 }
 
 .fa-times-circle{
