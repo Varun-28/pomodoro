@@ -41,7 +41,7 @@ function SingleTask() {
       </section>
       <section className="single-task-container">
         <div className="flex flex-col items-center justify-center">
-          <div className="pomoclock-bar my-4">
+          <div className="pomoclock-bar my-4 w-80">
             <CircularProgressbar
               value={percentValue}
               text={`${minutesLeft}m:${secondsLeft}s`}
