@@ -90,7 +90,7 @@ function SingleTask() {
         </div>
         <div className="flex flex-col items-center justify-center">
           <h3 className="text-3xl underline">{title}</h3>
-          <p className="text-lg">{description}</p>
+          <p className="text-lg mt-4">{description}</p>
         </div>
       </section>
     </main>
