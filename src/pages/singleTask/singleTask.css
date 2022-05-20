@@ -1,0 +1,18 @@
+.single-task-page{
+    background-color: var(--bg-color);
+}
+
+.single-task-container {
+    border: dashed 2px var(--primary-color);
+    display: grid;
+    grid-template-columns: 50% 50%;
+    min-height: 84vh;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+@media only screen and (max-width: 800px) {
+    .single-task-container {
+        grid-template-columns: 100%;
+    }
+}

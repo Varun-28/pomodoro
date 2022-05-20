@@ -1,46 +1,61 @@
-import { React, useState, useRef } from "react";
-import { useAddTask } from "../utils/useAddTask.js"
+import { React, useEffect, useState } from "react";
+import { useAddTask } from "../utils/useAddTask.js";
+import { useEditTask } from "../utils/useEditTask.js";
 
-function TaskForm({ setShowForm }) {
+function TaskForm({ setShowForm, isEditing, setIsEditing }) {
   const [error, setError] = useState({
     value: false,
     msg: "",
   });
-  const title = useRef();
-  const description = useRef();
-  const minutes = useRef();
+  const [formData, setFormData] = useState({
+    title: "",
+    description: "",
+    minutes: "",
+  });
   const { addTask } = useAddTask();
+  const { editTask } = useEditTask();
+
+  useEffect(() => {
+    setFormData((val) => ({
+      ...val,
+      title: isEditing.data.title,
+      description: isEditing.data.description,
+      minutes: isEditing.data.minutes,
+    }));
+  }, [isEditing]);
 
   function addTaskHandler(e) {
     e.preventDefault();
-    if (title.current.value.trim().length < 3) {
+    if (formData.title.trim().length < 3) {
       setError((err) => ({
         ...err,
         value: true,
         msg: "title must be atleast 3 characters long !",
       }));
-    } else if (description.current.value.trim().length < 10) {
+    } else if (formData.description.trim().length < 10) {
       setError((err) => ({
         ...err,
         value: true,
         msg: "description must be atleast 12 characters long !",
       }));
-    } else if (minutes.current.value.trim().length < 1) {
+    } else if (formData.minutes.trim().length < 1) {
       setError((err) => ({
         ...err,
         value: true,
         msg: "Please Enter minutes !",
       }));
     } else {
-      const currentTask = {
-        title: title.current.value,
-        description: description.current.value,
-        minutes: minutes.current.value,
-      };
-      addTask(currentTask);
-      title.current.value = "";
-      description.current.value = "";
-      minutes.current.value = "";
+      if (isEditing.value) {
+        editTask({ ...formData, id: isEditing.data.id }, setIsEditing);
+      } else {
+        addTask({ ...formData });
+      }
+      setFormData((val) => ({
+        ...val,
+        title: "",
+        description: "",
+        minutes: "",
+      }));
       setShowForm((val) => !val);
     }
   }
@@ -53,7 +68,10 @@ function TaskForm({ setShowForm }) {
             className="add-input"
             type="text"
             placeholder="Add Title"
-            ref={title}
+            value={formData.title}
+            onChange={(e) =>
+              setFormData((val) => ({ ...val, title: e.target.value }))
+            }
             onFocus={() =>
               setError((err) => ({ ...err, value: false, msg: "" }))
             }
@@ -61,7 +79,10 @@ function TaskForm({ setShowForm }) {
           <textarea
             className="add-input"
             placeholder="Add Description"
-            ref={description}
+            value={formData.description}
+            onChange={(e) =>
+              setFormData((val) => ({ ...val, description: e.target.value }))
+            }
             onFocus={() =>
               setError((err) => ({ ...err, value: false, msg: "" }))
             }
@@ -70,13 +91,18 @@ function TaskForm({ setShowForm }) {
             className="add-input"
             type="number"
             placeholder="Time in minutes"
-            ref={minutes}
+            value={formData.minutes}
+            onChange={(e) =>
+              setFormData((val) => ({ ...val, minutes: e.target.value }))
+            }
             onFocus={() =>
               setError((err) => ({ ...err, value: false, msg: "" }))
             }
           />
           {error.value && <p className="text-base">{error.msg}</p>}
-          <button className="add-btn self-end">Add</button>
+          <button className="add-btn self-end">
+            {isEditing.value ? "Update" : "Add"}
+          </button>
         </form>
         <button onClick={() => setShowForm((val) => !val)}>
           <i className="text-3xl fas fa-times-circle"></i>

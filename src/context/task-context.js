@@ -1,34 +1,20 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-import { getTask } from "../utils/updateStorage";
+import { taskReducerFunction } from "./taskReducerFunctions";
 
 const initialTaskData = {
-  tasks: []
-};
-
-const taskReducerFunction = (taskState, action) => {
-  switch (action.type) {
-    case "ADD-TASK":
-      return { ...taskState, tasks: [...taskState.tasks, action.payload] };
-    case "UPDATE-FROM-LOCALSTORAGE": {
-      const initalTask = getTask();
-      return { ...taskState, tasks: [...initalTask] };
-    }
-    default:
-      return taskState;
-  }
+  tasks: [],
 };
 
 const TaskContext = createContext();
 
 const TaskProvider = ({ children }) => {
-
   useEffect(() => {
-    taskDispatch({type: "UPDATE-FROM-LOCALSTORAGE"});
+    taskDispatch({ type: "UPDATE-FROM-LOCALSTORAGE" });
   }, []);
 
   const [taskState, taskDispatch] = useReducer(
     taskReducerFunction,
-    initialTaskData,
+    initialTaskData
   );
   return (
     <TaskContext.Provider value={{ taskState, taskDispatch }}>
