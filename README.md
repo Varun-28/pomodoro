@@ -21,6 +21,7 @@ A modern web-app that helps you manage your tasks and focus on your task followi
 ✅ In the Task-Detail Page user can see name and description of task along with it's Timer <br />
 ✅ Timer has the options of Start, Pause and Reset <br />
 ✅ Timer is in-sync with the web-app title for ease in work <br />
+✅ Data-persistence using local storage <br />
 
 <br />
 
