@@ -9,7 +9,15 @@ function TaskList({ setShowForm, setIsEditing }) {
     <div className="task-container w-4/5">
       <div className="task-list-header flex items-center justify-between p-6">
         <span className="text-lg font-semibold">To-Do List</span>
-        <button onClick={() => setShowForm((val) => !val)}>
+        <button
+          onClick={() => {
+            setIsEditing({
+              value: false,
+              data: {},
+            });
+            setShowForm((val) => !val);
+          }}
+        >
           <i className="text-2xl fa-solid fa-circle-plus"></i>
         </button>
       </div>

@@ -28,6 +28,7 @@ export const taskReducerFunction = (taskState, action) => {
                   title: action.payload.title,
                   description: action.payload.description,
                   minutes: action.payload.minutes,
+                  tags: action.payload.tags
                 }
               : task
           ),

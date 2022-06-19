@@ -10,7 +10,7 @@ import "./singleTask.css";
 function SingleTask() {
   const { taskId } = useParams();
   const taskData = getTask();
-  const { title, description, minutes } = taskData.find(
+  const { title, description, minutes, tags } = taskData.find(
     (task) => task.id === taskId
   );
   const {
@@ -91,6 +91,14 @@ function SingleTask() {
         <div className="flex flex-col items-center justify-center">
           <h3 className="text-3xl underline">{title}</h3>
           <p className="text-lg mt-4">{description}</p>
+          {tags.length !== 0 && (
+            <div className="mt-4">
+              <h3 className="text-2xl text-center">Tags:</h3>
+              <div className="flex flex-wrap gap-2 mt-2">
+              {tags.map((tag) => <span className="bg-white rounded-2xl py-1 px-2" key={tag.id}>{tag.name}</span>)}
+              </div>
+            </div>
+          )}
         </div>
       </section>
     </main>
